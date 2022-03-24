@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style-cadastro.css">
+    <title>Cadastre-se</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__menu">
+            <span class="logo">QI Labs</span>
+            <span>Entrar</span>
+        </div>
+    </header>
+    <main>
+        <div class="container-principal">
+            <div class="titulo">
+                <h1>Cadastre-se</h1>
+                <p>Com a sua conta, você poderá gerenciar suas coleções de flash cards.</p>
+            </div>
+            <div class="input-group">
+                <div class="container-principal">
+                    <form action="/cadastro" method="post">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Insira o seu nome completo">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Insira o seu e-mail">
+                        <label for="senha">Senha</label>
+                        <input type="text" class="form-control" id="senha">
+                        <label for="repetirSenha">Repetir a senha</label>
+                        <input type="text" class="form-control" id="repetirSenha">
+                        <div class="botao">
+                            <button class="btn mt-3">Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

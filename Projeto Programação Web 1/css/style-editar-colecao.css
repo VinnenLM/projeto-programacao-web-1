@@ -1,0 +1,80 @@
+body, html {
+    background-color: #2d294c;
+    color: white;
+}
+
+.header {
+    background-color: #413d5d;
+    vertical-align: middle;
+    padding: 15px;
+}
+
+.header__menu {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.minhas-colecoes {
+    margin-right: 20px;  
+}
+
+.titulo-pagina {
+    margin: 3rem 0 0 35px;
+    width: 100%;
+}
+
+.titulo-pagina>span {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.container-principal {
+    width: 55%;
+    margin: 0 auto;
+}
+
+.descricao > h3{
+    font-size: 22px;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    border-radius: 5px;
+}
+
+
+.btn-primary {
+    border-color: none !important;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#btn-envio > .btn{
+    border: 1px solid grey;
+}
+
+#salvar {
+    background-color: #5e5796 !important;
+    width: 45%;
+    color: white;
+}
+
+#txt-descricao{
+    height: 7em;
+    resize: none;
+}
