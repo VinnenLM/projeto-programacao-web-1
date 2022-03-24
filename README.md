@@ -2,7 +2,7 @@
 
 ### Mind Booster
 
-Projeto de jogo estilo Flash Cards chamado Mind Booster
+Projeto de jogo estilo Flash Cards
 
 ### Tecnologias Utilizadas
 
