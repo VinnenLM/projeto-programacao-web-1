@@ -15,13 +15,14 @@ body, html {
     margin: 0 20px;
 }
 
+.entrar{
+    font-weight: bold;
+    margin-left: 20px;
+}
+
 .logo {
     font-weight: bold;
     font-size: 20px;
-}
-
-.minhas-colecoes {
-    margin-right: 20px;
 }
 
 .container-principal {
