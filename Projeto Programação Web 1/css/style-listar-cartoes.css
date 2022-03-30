@@ -80,6 +80,14 @@ input {
     border: .5px solid grey;
 }
 
+.modal-header{
+    color: black;
+}
+
+.modal-body{
+    color: black;
+}
+
 #salvar {
     margin: 20px auto;
     padding-left: 30px;
