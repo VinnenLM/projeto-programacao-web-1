@@ -9,6 +9,10 @@ body, html {
     padding: 15px;
 }
 
+a{
+    color: white;
+}
+
 .header__menu {
     display: flex;
     justify-content: space-between;

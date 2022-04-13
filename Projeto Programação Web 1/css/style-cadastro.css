@@ -15,9 +15,20 @@ body, html {
     margin: 0 20px;
 }
 
-.logo {
+.header__menu > a {
+    color: white;
+    line-height: 2rem;
+}
+
+.logo > span{
     font-weight: bold;
     font-size: 20px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.logo > img {
+    width: 25px;
 }
 
 .container-principal {
@@ -38,6 +49,15 @@ h1 {
 label {
     margin-top: 10px;
     margin-bottom: 0;
+}
+
+#senhaErrada{
+    color: red;
+    font-size: 12px;
+}
+
+.naoMostrar{
+    display: none;
 }
 
 .botao {

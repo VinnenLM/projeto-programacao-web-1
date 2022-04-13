@@ -15,9 +15,20 @@ body, html {
     margin: 0 20px;
 }
 
-.logo {
+.opcoes > a{
+    line-height: 2rem;
+    color: white;
+}
+
+.logo > span{
     font-weight: bold;
     font-size: 20px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.logo > img {
+    width: 25px;
 }
 
 .minhas-colecoes {

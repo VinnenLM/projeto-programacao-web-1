@@ -9,13 +9,18 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style-login.css">
     <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
 </head>
 
 <body>
+    
     <header class="header">
         <div class="header__menu">
-            <span class="logo">QI Labs</span>
-            <span>Cadastre-se</span>
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo QI Labs">
+                <span>QI Labs</span>
+            </div>
+            <a href="cadastro.html">Cadastre-se</a>
         </div>
     </header>
 
@@ -28,17 +33,42 @@
                 <div class="container-principal">
                     <form action="/cadastro" method="post">
                         <label for="email">Email</label>
-                        <input class="form-control" type="text" id="email" placeholder="Insira o seu e-mail">
+                        <input class="form-control" type="email" id="email" placeholder="Insira o seu e-mail">
+                        <span id="emailInvalido" class="naoMostrar">E-mail inválido</span>
                         <label for="senha">Senha</label>
-                        <input class="form-control" type="text" id="senha">
+                        <input class="form-control" type="password" id="senha">
                         <div class="botao">
-                            <button class="btn mt-3">Entrar</button>
+                            <button id="entrar" class="btn mt-3">Entrar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </main>
+
+    <script>
+
+        var entrar = document.getElementById('entrar');
+
+        entrar.addEventListener('click', function (evt) {
+            evt.preventDefault();
+            var email = document.getElementById('email').value;
+            var validacao = validarEmail(email);
+            var emailErrado = document.getElementById('emailInvalido');
+            console.log(validacao);
+            if (validacao == true) {
+                emailErrado.classList.add("naoMostrar");
+            } else {
+                emailErrado.classList.remove("naoMostrar");
+            }
+        });
+
+        function validarEmail(email) {
+            var validar = /\S+@\S+\.\S+/;
+            return validar.test(email);
+        }
+
+    </script>
 
 </body>
 

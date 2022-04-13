@@ -9,15 +9,21 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style-cadastro.css">
     <title>Cadastre-se</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">   
 </head>
 
 <body>
+
     <header class="header">
         <div class="header__menu">
-            <span class="logo">QI Labs</span>
-            <span>Entrar</span>
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo QI Labs">
+                <span>QI Labs</span>
+            </div>
+            <a href="login.html">Entrar</a>
         </div>
     </header>
+
     <main>
         <div class="container-principal">
             <div class="titulo">
@@ -32,17 +38,39 @@
                         <label for="email">Email</label>
                         <input type="text" class="form-control" id="email" placeholder="Insira o seu e-mail">
                         <label for="senha">Senha</label>
-                        <input type="text" class="form-control" id="senha">
+                        <input type="password" class="form-control" id="senha">
                         <label for="repetirSenha">Repetir a senha</label>
-                        <input type="text" class="form-control" id="repetirSenha">
+                        <input type="password" class="form-control" id="repetirSenha">
+                        <span id="senhaErrada" class="naoMostrar">Senha não confere</span>
                         <div class="botao">
-                            <button class="btn mt-3">Cadastrar</button>
+                            <button id="cadastrar" class="btn mt-3">Cadastrar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </main>
+
+    <script>
+        var botao = document.getElementById('cadastrar');
+        botao.addEventListener('click', function(evt){
+            evt.preventDefault();
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var senha = document.getElementById('senha').value;
+            var repetirSenha = document.getElementById('repetirSenha').value;
+            var senhaErrada = document.getElementById('senhaErrada');
+
+            if(senha == repetirSenha){
+                senhaErrada.classList.add("naoMostrar");
+                alert(`Nome: ${nome}\rEmail: ${email}\rSenha: ${senha}\rRepetir Senha: ${repetirSenha}`);
+            }else{
+                senhaErrada.classList.remove("naoMostrar");
+            }
+
+            
+        });
+    </script>
 </body>
 
 </html>

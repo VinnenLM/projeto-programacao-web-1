@@ -15,9 +15,20 @@ body, html {
     margin: 0 20px;
 }
 
-.logo {
+.opcoes > a{
+    line-height: 2rem;
+    color: white;
+}
+
+.logo > span{
     font-weight: bold;
     font-size: 20px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.logo > img {
+    width: 25px;
 }
 
 .minhas-colecoes {
@@ -28,20 +39,31 @@ body, html {
     margin: 3rem 0 0 35px;
 }
 
-.titulo-pagina>span {
+.container-principal{
+    margin-top: 2rem;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.container-principal > span{
     font-weight: bold;
     font-size: 25px;
 }
 
-.container-principal {
-    width: 55%;
-    margin: 0 auto;
+.titulo {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 20px;
 }
 
-.descricao > h3{
-    font-size: 22px;
-    text-align: center;
-    margin: 2rem 0;
+h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.container-input{
+    margin: 0 auto !important;
+    width: 30%;
 }
 
 label {
