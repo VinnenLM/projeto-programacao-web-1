@@ -9,18 +9,20 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style-index.css">
     <title>Index</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png"> 
 </head>
 
 <body>
 
     <header class="header">
         <div class="header__menu">
-            <div>
-                <span class="logo">QI Labs</span>
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo QI Labs">
+                <span>QI Labs</span>
             </div>
-            <div>
+            <div class="opcoes">
                 <a href="cadastro.html">Cadastre-se</a>
-                <a href="login.html" class="entrar">Entrar</a>
+                <a class="entrar" href="login.html">Entrar</a>
             </div>
         </div>
     </header>
@@ -35,21 +37,35 @@
 
             <div class="container-cartoes">
 
+                <p class="cartao-p">Como se chama carro em inglês?</p>
+                
                 <div class="cartoes">
-
-                    <div class="cartao">
-                        <div class="cartao-frente">
-                            <span>Carro</span>
+                   
+                    <div id="cartao-clicavel" class="div-cartao">
+                        <div class="clicar">
+                            <span>Clique no cartão <br> para descobrir</span>
+                            <img src="img/seta-clicar.png" alt="">
+                        </div>
+                        <div class="cartao">
+                            <div class="cartao-frente">
+                                <span>Carro</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="cartao">
-                        <div class="cartao-frente">
-                            <span>Carro</span>
-                        </div>
-                        <div class="separacao"></div>
-                        <div class="cartao-verso">
-                            <span>Car</span>
+                    <div class="cartao-seta nao-visivel">
+                        <img class="seta" src="img/seta.png" alt="">
+                    </div>
+
+                    <div id="cartao-completo" class="div-cartao nao-visivel">
+                        <div class="cartao">
+                            <div class="cartao-frente">
+                                <span>Carro</span>
+                            </div>
+                            <div class="separacao"></div>
+                            <div class="cartao-verso">
+                                <span>Car</span>
+                            </div>
                         </div>
                     </div>
 
@@ -58,6 +74,23 @@
             </div>
         </div>
     </main>
+
+    <script>
+        var cartao = document.getElementById('cartao-clicavel');
+        cartao.addEventListener('click', function(){
+            var cartaoCompleto = document.getElementById('cartao-completo');
+            var seta = document.querySelector('.cartao-seta');
+            if(cartaoCompleto.classList.contains('nao-visivel')){
+                cartaoCompleto.classList.remove("nao-visivel");
+                seta.classList.remove("nao-visivel");
+            }else{
+                cartaoCompleto.classList.add("nao-visivel");
+                seta.classList.add("nao-visivel");
+            }
+            
+        });
+    </script>
+
 </body>
 
 </html>

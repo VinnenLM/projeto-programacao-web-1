@@ -9,21 +9,27 @@ body, html {
     padding: 15px;
 }
 
-a{
-    color: white;
-}
-
 .header__menu {
     display: flex;
     justify-content: space-between;
     margin: 0 20px;
 }
 
-.logo {
+.logo > span{
     font-weight: bold;
     font-size: 20px;
+    margin-left: 5px;
+    vertical-align: middle;
 }
 
+.logo > img {
+    width: 25px;
+}
+
+.opcoes > a{
+    line-height: 2rem;
+    color: white;
+}
 .minhas-colecoes {
     margin-right: 20px;
     font-weight: bold;
