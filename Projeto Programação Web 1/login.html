@@ -55,9 +55,15 @@
             var email = document.getElementById('email').value;
             var validacao = validarEmail(email);
             var emailErrado = document.getElementById('emailInvalido');
-            console.log(validacao);
+            var senha = document.getElementById('senha').value;
             if (validacao == true) {
                 emailErrado.classList.add("naoMostrar");
+                if(senha == ''){
+                    alert('Preencha o campo de senha!');
+                } else {
+                    window.location.href = "home.html";
+                }
+                
             } else {
                 emailErrado.classList.remove("naoMostrar");
             }

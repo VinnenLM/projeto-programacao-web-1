@@ -61,13 +61,16 @@
             var repetirSenha = document.getElementById('repetirSenha').value;
             var senhaErrada = document.getElementById('senhaErrada');
 
-            if(senha == repetirSenha){
-                senhaErrada.classList.add("naoMostrar");
-                alert(`Nome: ${nome}\rEmail: ${email}\rSenha: ${senha}\rRepetir Senha: ${repetirSenha}`);
-            }else{
-                senhaErrada.classList.remove("naoMostrar");
+            if (nome != '' && email != '' && senha != '' && repetirSenha != ''){
+                if (senha == repetirSenha){
+                    senhaErrada.classList.add("naoMostrar");
+                    alert(`Nome: ${nome}\rEmail: ${email}\rSenha: ${senha}\rRepetir Senha: ${repetirSenha}`);
+                } else {
+                    senhaErrada.classList.remove("naoMostrar");
+                }
+            } else {
+                alert('Preencha todos os campos!');
             }
-
             
         });
     </script>

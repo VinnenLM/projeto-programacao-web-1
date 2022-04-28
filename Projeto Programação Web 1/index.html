@@ -80,12 +80,18 @@
         cartao.addEventListener('click', function(){
             var cartaoCompleto = document.getElementById('cartao-completo');
             var seta = document.querySelector('.cartao-seta');
+            var cartaoP = document.querySelector('.cartao-p');
+            var clicar = document.querySelector('.clicar');
             if(cartaoCompleto.classList.contains('nao-visivel')){
                 cartaoCompleto.classList.remove("nao-visivel");
                 seta.classList.remove("nao-visivel");
+                cartaoP.classList.add("nao-visivel");
+                clicar.classList.add("nao-visivel");
             }else{
                 cartaoCompleto.classList.add("nao-visivel");
                 seta.classList.add("nao-visivel");
+                cartaoP.classList.remove("nao-visivel");
+                clicar.classList.remove("nao-visivel");
             }
             
         });
