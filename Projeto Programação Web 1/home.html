@@ -38,7 +38,7 @@
 
             <div class="cartoes">
 
-                <div class="cartao">
+                <div class="cartao" data-idCartao="1">
                     <div class="editar-cartao"><i class="bi bi-pencil"></i></div>
                     <div class="cartao-imagem"><img src="img/bola.png" alt=""></div>
                     <div class="cartao-nome">
@@ -47,7 +47,7 @@
                     <div class="excluir-cartao"><i class="bi bi-trash3"></i></div>
                 </div>
 
-                <div class="cartao">
+                <div class="cartao" data-idCartao="2">
                     <div class="editar-cartao"><i class="bi bi-pencil"></i></div>
                     <div class="cartao-imagem"><img src="img/rainbow-circle.png" alt=""></div>
                     <div class="cartao-nome">
@@ -56,7 +56,7 @@
                     <div class="excluir-cartao"><i class="bi bi-trash3"></i></div>
                 </div>
 
-                <div class="cartao">
+                <div class="cartao" data-idCartao="3">
                     <div class="editar-cartao"><i class="bi bi-pencil"></i></div>
                     <div class="cartao-imagem"><img src="img/urso.png" alt=""></div>
                     <div class="cartao-nome">
@@ -64,13 +64,13 @@
                     </div>
                     <div class="excluir-cartao"><i class="bi bi-trash3"></i></div>
                 </div>
-                <div class="cartao">
+                <div class="cartao" data-idCartao="4">
                     <div class="editar-cartao"><i class="bi bi-pencil"></i></div>
                     <div class="cartao-imagem"><img src="img/arvore.png" alt=""></div>
                     <div class="cartao-nome">
                         <span>Adjetivos</span>
                     </div>
-                    <div class="excluir-cartao"><i class="bi bi-trash3" id="excluir"></i></div>
+                    <div class="excluir-cartao"><i class="bi bi-trash3"></i></div>
                 </div>
 
             </div>
@@ -90,7 +90,7 @@
                         <p>Tem certeza que deseja remover essa coleção? Isso excluirá todos os cartões contidos nela.</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Sim</button>
+                        <button type="button" class="btn btn-primary" id="excluir">Sim</button>
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
@@ -111,10 +111,18 @@
 
     <script>
 
-        $('.excluir-cartao>i').click(function () {
+        $('.bi-trash3').click(function (e) {
             $('#myModal').modal('toggle')
+            modal = document.getElementById('myModal');
+            attribute = e.target.parentNode.parentNode.getAttribute("data-idCartao");
+            modal.setAttribute('data-id', attribute);
         });
-                   
+                
+        $('#excluir').click(function(e){
+            $('#myModal').modal('toggle');
+            id = e.target.parentNode.parentNode.parentNode.parentNode.getAttribute("data-id");
+            $("div[data-idCartao='" + id + "']").remove();
+        });
         
         window.onload = function(){
             criarColecao();
@@ -126,7 +134,7 @@
             var imagem = localStorage.getItem('imagem');
 
             if(nome.length > 0){
-                divCartao = document.createElement('div');
+            divCartao = document.createElement('div');
             divCartao.classList.add("cartao");
 
             divEditarCartao = document.createElement('div');
@@ -160,8 +168,8 @@
             excluir = document.createElement('i');
             excluir.classList.add("bi");
             excluir.classList.add("bi-trash3");
-
-            divEditarCartao.appendChild(editar);
+            
+            divExcluirCartao.appendChild(excluir);
 
             divCartao.appendChild(divEditarCartao);
             divCartao.appendChild(divCartaoImagem);
