@@ -31,7 +31,7 @@
     <main>
 
         <div class="container-principal botao">
-            <button class="btn btn-default">Nova Coleção</button>
+            <a href="nova-colecao.html" class="btn btn-default">Nova Coleção</a>
         </div>
 
         <div class="container-principal">
@@ -114,7 +114,66 @@
         $('.excluir-cartao>i').click(function () {
             $('#myModal').modal('toggle')
         });
+                   
+        
+        window.onload = function(){
+            criarColecao();
+        }
+
+        function criarColecao(){
+            var nome = localStorage.getItem('nome');
+            var descricao = localStorage.getItem('descricao');
+            var imagem = localStorage.getItem('imagem');
+
+            if(nome.length > 0){
+                divCartao = document.createElement('div');
+            divCartao.classList.add("cartao");
+
+            divEditarCartao = document.createElement('div');
+            divEditarCartao.classList.add("editar-cartao");
+
+            editar = document.createElement('i');
+            editar.classList.add("bi");
+            editar.classList.add("bi-pencil");
+
+            divEditarCartao.appendChild(editar);
+
+            divCartaoImagem = document.createElement('div');
+            divCartaoImagem.classList.add("cartao-imagem");
+
+            imagem = document.createElement('img');
+            imagem.src = localStorage.getItem('imagem');
+
+            divCartaoImagem.appendChild(imagem);
+
+            divCartaoNome = document.createElement('div');
+            divCartaoNome.classList.add("cartao-nome");
+
+            nome = document.createElement('span');
+            nome.textContent = localStorage.getItem('nome');
+
+            divCartaoNome.appendChild(nome);
+
+            divExcluirCartao = document.createElement('div');
+            divExcluirCartao.classList.add("excluir-cartao");
+
+            excluir = document.createElement('i');
+            excluir.classList.add("bi");
+            excluir.classList.add("bi-trash3");
+
+            divEditarCartao.appendChild(editar);
+
+            divCartao.appendChild(divEditarCartao);
+            divCartao.appendChild(divCartaoImagem);
+            divCartao.appendChild(divCartaoNome);
+            divCartao.appendChild(divExcluirCartao);
+
+            var cartoes = document.querySelector(".cartoes");
+            cartoes.appendChild(divCartao);
+            }
                         
+        }
+
     </script>
 </body>
 

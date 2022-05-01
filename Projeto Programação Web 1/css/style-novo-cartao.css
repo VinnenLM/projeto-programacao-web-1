@@ -90,6 +90,14 @@ h3 {
     color: grey;
 }
 
+input{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    text-decoration: underline;
+}
+
 .btn {
     background-color: #5e5796 !important;
     padding: 5px 20px;
