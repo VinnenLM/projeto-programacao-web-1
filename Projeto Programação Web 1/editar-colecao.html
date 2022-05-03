@@ -39,24 +39,21 @@
 
             <div class="container-input">
 
-                <form action="/cadastro" method="post">
+                <form action="home.html" method="PUT">
                     <label for="nome">Nome coleção</label>
                     <input class="form-control" type="text" id="nome" placeholder="Insira o nome da coleção">
                     <label for="descricao">Descrição</label>
-                    <textarea class="form-control" type="text" id="txt-descricao"
+                    <textarea class="form-control" type="text" id="descricao"
                         placeholder="Descreva os detalhes da coleção"></textarea>
                     <label for="imagem">Imagem</label>
 
                     <div class="input-group">
-                        <input class="form-control" type="text" id="imagem"
-                            placeholder="Escolha uma imagem para a coleção">
-                        <div class="input-group-append" id="btn-envio">
-                            <button class="btn btn-default" type="button">Browse</button>
-                        </div>
+                        <input type="file" id="imagem" onchange="mudarNome(this)">
+                        <label class="custom-file-label" for="imagem">Escolha uma imagem para a coleção criada...</label>
                     </div>
 
                     <div class="botao">
-                        <button class="btn mt-3" id="salvar">Salvar Alterações</button>
+                        <button type="submit" class="btn mt-3" id="salvar" onclick="salvarDados()">Salvar Alterações</button>
                     </div>
 
                 </form>
@@ -66,6 +63,34 @@
         </div>
 
     </div>
+
+    <script>
+
+function mudarNome(target) {
+        document.querySelector(".custom-file-label").innerHTML = target.files[0].name;
+    }
+
+    function salvarDados(){
+        novoNome = document.getElementById('nome').value;
+        novaDescricao = document.getElementById('descricao').value;
+        novaImagem = document.getElementById('imagem').files[0];
+
+        localStorage.setItem("novoNome", novoNome);
+        localStorage.setItem("novaDescricao", novaDescricao);
+
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            localStorage.setItem("novaImagem", reader.result);
+        }, false);
+
+        if (imagem) {
+            reader.readAsDataURL(novaImagem);
+        }
+
+    }
+
+    </script>
 
 </body>
 

@@ -51,7 +51,7 @@
                     <div class="editar-cartao"><i class="bi bi-pencil"></i></div>
                     <div class="cartao-imagem"><img src="img/rainbow-circle.png" alt=""></div>
                     <div class="cartao-nome">
-                        <span>Cores</span>
+                        <span class="teste">Cores</span>
                     </div>
                     <div class="excluir-cartao"><i class="bi bi-trash3"></i></div>
                 </div>
@@ -117,6 +117,12 @@
             attribute = e.target.parentNode.parentNode.getAttribute("data-idCartao");
             modal.setAttribute('data-id', attribute);
         });
+
+        $('.bi-pencil').click(function (e) {
+            id = e.target.parentNode.parentNode.getAttribute("data-idCartao");
+            var id = localStorage.setItem('id', id);
+            window.location.href = 'editar-colecao.html';
+        });
                 
         $('#excluir').click(function(e){
             $('#myModal').modal('toggle');
@@ -126,8 +132,21 @@
         
         window.onload = function(){
             criarColecao();
+            editarColecao();
         }
 
+        function editarColecao(){
+            var id = localStorage.getItem('id');
+            var nome = localStorage.getItem('novoNome');
+            var descricao = localStorage.getItem('novaDescricao');
+            var imagem = localStorage.getItem('novaImagem');
+            $("div[data-idCartao='" + id + "'] span").text(nome);
+            $("div[data-idCartao='" + id + "'] img").attr('src', imagem);
+            if (nome.lenght > 0){
+                
+            }
+        }
+        
         function criarColecao(){
             var nome = localStorage.getItem('nome');
             var descricao = localStorage.getItem('descricao');
