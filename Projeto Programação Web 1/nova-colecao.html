@@ -76,21 +76,36 @@
         nome = document.getElementById('nome').value;
         descricao = document.getElementById('descricao').value;
         imagem = document.getElementById('imagem').files[0];
+        var img;
 
-        localStorage.setItem("nome", nome);
-        localStorage.setItem("descricao", descricao);
-
+        //localStorage.setItem("nome", nome);
+        //localStorage.setItem("descricao", descricao);
         const reader = new FileReader();
 
-        reader.addEventListener("load", function () {
+        reader.addEventListener("load", function (img) {
             localStorage.setItem("imagem", reader.result);
         }, false);
 
         if (imagem) {
             reader.readAsDataURL(imagem);
         }
-
+        //img = localStorage.getItem('imagem');
+        local();
     }
+
+    function local(){
+        const localStorageInventory = JSON.parse(localStorage.getItem('inventory'));
+        let inventory = localStorage.getItem('inventory') != null ? localStorageInventory : [];
+
+        inventory.push({
+            nome: nome,
+            descricao: descricao,
+            imagem: img
+        });
+        
+        localStorage.setItem('inventory', JSON.stringify(inventory));
+    }
+
 
 </script>
 
