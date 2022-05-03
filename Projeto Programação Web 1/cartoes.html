@@ -22,7 +22,7 @@
                 <span>QI Labs</span>
             </div>
             <div class="opcoes">
-                <a href="#" class="minhas-colecoes">Minhas coleções</a>
+                <a href="home.html" class="minhas-colecoes">Minhas coleções</a>
                 <a href="login.html">Sair</a>
             </div>
         </div>
@@ -43,7 +43,7 @@
     </div>
 
     <main class="container-principal">
-        <div>
+        <div class="listagem">
             <ul class="list-group" data-idCartao="1">
                 <li class="list-group-item">
                     <div class="nome-colecao">
@@ -168,6 +168,92 @@
             id = e.target.parentNode.parentNode.parentNode.parentNode.getAttribute("data-id");
             $("ul[data-idCartao='" + id + "']").remove();
         });
+
+        window.onload = function () {
+            criarCartao();
+            editarCartao();
+        }
+
+        function criarCartao() {
+            var frente = localStorage.getItem('frente');
+            if (frente !== null) {
+                var verso = localStorage.getItem('verso');
+
+                ulCartao = document.createElement('ul');
+                ulCartao.classList.add("list-group");
+
+                liCartao = document.createElement('li');
+                liCartao.classList.add("list-group-item");
+
+                ulCartao.appendChild(liCartao);
+
+                divColecao = document.createElement('div');
+                divColecao.classList.add("nome-colecao");
+
+                liCartao.appendChild(divColecao);
+
+                aCartao = document.createElement('a');
+                divColecao.classList.add("text-dark");
+                aCartao.textContent = localStorage.getItem('frente');
+
+                divColecao.appendChild(aCartao);
+
+                divBotao = document.createElement('div');
+                divBotao.classList.add("botao");
+
+                liCartao.appendChild(divBotao);
+
+                button1 = document.createElement('button');
+                button1.classList.add("btn");
+                button1.classList.add("btn-primary");
+                button1.classList.add("mr-1");
+
+                iButton1 = document.createElement('i');
+                iButton1.classList.add("bi");
+                iButton1.classList.add("bi-pencil-square");
+
+                button1.appendChild(iButton1);
+
+                button2 = document.createElement('button');
+                button2.classList.add("btn");
+                button2.classList.add("btn-danger");
+                button2.classList.add("mostrarModal");
+
+                iButton2 = document.createElement('i');
+                iButton2.classList.add("bi");
+                iButton2.classList.add("bi-trash-fill");
+
+                button2.appendChild(iButton2);
+
+                divBotao.appendChild(button1);
+                divBotao.appendChild(button2);
+
+                var cartoes = document.querySelector(".listagem");
+                cartoes.appendChild(ulCartao);
+            }
+
+        }
+
+
+        $('.bi-pencil-square').click(function (e) {
+            idCartao = e.target.parentNode.parentNode.parentNode.parentNode.getAttribute("data-idCartao");
+            localStorage.setItem('idCartao', idCartao);
+            window.location.href = 'editar-cartao.html';
+        });
+
+
+        function editarCartao() {
+
+            var id = localStorage.getItem('idCartao');
+
+            if(id !== null){
+                var novaFrente = localStorage.getItem('novaFrente');
+                var span1 = document.querySelector("ul[data-idCartao='" + id + "'] li div a");
+                span1.innerHTML = novaFrente;
+            }
+
+}
+
     </script>
 
 </body>

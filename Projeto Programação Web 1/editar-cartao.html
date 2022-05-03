@@ -21,7 +21,7 @@
                 <span>QI Labs</span>
             </div>
             <div class="opcoes">
-                <a href="lista-cartoes.html" class="minhas-colecoes">Minhas coleções</a>
+                <a href="home.html" class="minhas-colecoes">Minhas coleções</a>
                 <a href="login.html">Sair</a>
             </div>
         </div>
@@ -35,21 +35,38 @@
                 <h3>Atualize os dados da frente e do verso do flashcard</h3>
             </div>
 
+            <form action="cartoes.html" method="post">
+
             <div class="cartao">
                 <span>Frente</span>
                 <div class="cartao-frente">
-                    <span>Brinquedo</span>
+                    <input id="frente" value="Nome"></input>
                 </div>
                 <div class="separacao"></div>
                 <span>Verso</span>
                 <div class="cartao-verso">
-                    <span>Toy</span>
+                    <input id="verso" value="Nome"></input>
                 </div>
             </div>
 
-            <button class="btn btn-default d-flex" id="salvar">Salvar alterações</button>
+            <button class="btn btn-default d-flex" id="salvar" onclick="salvarDados()">Salvar alterações</button>
+
+            </form>
         </div>
     </main>
+
+    <script>
+
+function salvarDados(){
+    novaFrente = document.getElementById('frente').value;
+    novoVerso = document.getElementById('verso').value;
+
+    localStorage.setItem("novaFrente", novaFrente);
+    localStorage.setItem("novoVerso", novoVerso);
+    }
+
+    </script>
+
 </body>
 
 </html>

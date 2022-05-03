@@ -21,7 +21,7 @@
                 <span>QI Labs</span>
             </div>
             <div class="opcoes">
-                <a href="lista-cartoes.html" class="minhas-colecoes">Minhas coleções</a>
+                <a href="home.html" class="minhas-colecoes">Minhas coleções</a>
                 <a href="login.html">Sair</a>
             </div>
         </div>
@@ -76,10 +76,9 @@
         nome = document.getElementById('nome').value;
         descricao = document.getElementById('descricao').value;
         imagem = document.getElementById('imagem').files[0];
-        var img;
 
-        //localStorage.setItem("nome", nome);
-        //localStorage.setItem("descricao", descricao);
+        localStorage.setItem("nome", nome);
+        localStorage.setItem("descricao", descricao);
         const reader = new FileReader();
 
         reader.addEventListener("load", function (img) {
@@ -89,21 +88,25 @@
         if (imagem) {
             reader.readAsDataURL(imagem);
         }
-        //img = localStorage.getItem('imagem');
-        local();
+        //local();
     }
 
+    //nao deu tempo de implementar
     function local(){
-        const localStorageInventory = JSON.parse(localStorage.getItem('inventory'));
-        let inventory = localStorage.getItem('inventory') != null ? localStorageInventory : [];
+        let local = JSON.parse(localStorage.getItem('local'));
+        if(local != null){
+            let arrayLocal = localStorage.getItem('local')
+        }else{
+            arrayLocal = [];
+        }
 
-        inventory.push({
+        arrayLocal.push({
             nome: nome,
             descricao: descricao,
-            imagem: img
+            imagem: imagem
         });
         
-        localStorage.setItem('inventory', JSON.stringify(inventory));
+        localStorage.setItem('local', JSON.stringify(arrayLocal));
     }
 
 

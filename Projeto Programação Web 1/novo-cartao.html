@@ -9,7 +9,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style-novo-cartao.css">
     <title>Novo Cartão</title>
-    <link rel="icon" type="image/x-icon" href="img/logo.png">   
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
 </head>
 
 <body>
@@ -35,21 +35,35 @@
                 <h3>Preencha os dados da frente e do verso do flashcard</h3>
             </div>
 
-            <div class="cartao">
-                <span>Frente</span>
-                <div class="cartao-frente">
-                    <input value="Nome"></input>
-                </div>
-                <div class="separacao"></div>
-                <span>Verso</span>
-                <div class="cartao-verso">
-                    <input value="Nome"></input>
-                </div>
-            </div>
+            <form action="cartoes.html" method="POST">
 
-            <button class="btn btn-default d-flex" id="salvar">Cadastrar</button>
+                <div class="cartao">
+                    <span>Frente</span>
+                    <div class="cartao-frente">
+                        <input id="frente" value="Nome"></input>
+                    </div>
+                    <div class="separacao"></div>
+                    <span>Verso</span>
+                    <div class="cartao-verso">
+                        <input id="verso" value="Nome"></input>
+                    </div>
+                </div>
+
+                <button class="btn btn-default d-flex" id="salvar" onclick="salvarDados()">Cadastrar</button>
+            </form>
         </div>
     </main>
+
+    <script>
+        function salvarDados() {
+            frente = document.getElementById('frente').value;
+            verso = document.getElementById('verso').value;
+
+            localStorage.setItem("frente", frente);
+            localStorage.setItem("verso", verso);
+        }
+    </script>
+
 </body>
 
 </html>
